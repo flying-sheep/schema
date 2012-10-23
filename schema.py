@@ -101,7 +101,8 @@ class Schema(object):
                         nkey = Schema(skey, error=e).validate(key)
                         try:
                             nvalue = Schema(svalue, error=e).validate(value)
-                        except SchemaError as x:
+                        except SchemaError as _x:
+                            x = _x
                             raise
                     except SchemaError:
                         pass
